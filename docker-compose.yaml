@@ -1,0 +1,30 @@
+services:
+  macapple:
+    build:
+      context: .
+      dockerfile: crosscompile/mac/Dockerfile
+      args:
+        ARCH: "aarch64"
+        # OWNSDK: "11.3"
+        # MACMIN: "11.0"
+      x-bake:
+        output: 
+          - type=local,dest=./crosscompile/build/mac/apple
+  macintel:
+    build:
+      context: .
+      dockerfile: crosscompile/mac/Dockerfile
+      args:
+        ARCH: "x86_64"
+        # OWNSDK: "11.3"
+        # MACMIN: "11.0"
+      x-bake:
+        output: 
+          - type=local,dest=./crosscompile/build/mac/intel
+  ts431:
+    build:
+      context: .
+      dockerfile: crosscompile/ts431/Dockerfile
+      x-bake:
+        output: 
+          - type=local,dest=./crosscompile/build/ts431
