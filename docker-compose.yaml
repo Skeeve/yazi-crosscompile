@@ -28,3 +28,11 @@ services:
       x-bake:
         output: 
           - type=local,dest=./crosscompile/build/ts431
+
+  pi3b:
+    build:
+      context: .
+      dockerfile: crosscompile/pi3b/Dockerfile
+      x-bake:
+        output: 
+          - type=local,dest=./crosscompile/build/pi3b

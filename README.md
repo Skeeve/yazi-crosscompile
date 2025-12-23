@@ -8,6 +8,7 @@ Here are some dockerfiles to help in cross-compiling yazi for different
 platforms which I use.
 
 - QNAP TS 431 with OS 4.3.6
+- RaspberryPi 3b with LibreElec
 - macOS
 
 You should clone this repository as `crosscompile` inside your yazi repository:
@@ -69,3 +70,17 @@ Alternatively there is a docker-compose.yaml that you can use.
 
 To change the SDK (OWNSDK) or the minimal Version (MINMAC) for the macOS builds,
 you have to change the build variables in `crosscompile/docker-compose.yaml`.
+
+## Build for Raspberry Pi 3b
+
+I also have a Raspberry Pi 3b running LibreElec.
+I noticed that it seems to run the QNAP version well, so I simply copied the
+files from ts431 for pi3b.
+It's not really required this way, but should I ever notice that there are
+better compile options for the 3b, I can change it without affecting ts431.
+
+`crosscompile/pi3b/build.sh`
+
+When finished, you should have a directory `crosscompile/build/pi3b` containing
+both, `ya` and `yazi`.
+
