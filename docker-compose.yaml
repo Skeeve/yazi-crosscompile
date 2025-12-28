@@ -28,7 +28,6 @@ services:
       x-bake:
         output: 
           - type=local,dest=./crosscompile/build/ts431
-
   pi3b:
     build:
       context: .
@@ -36,3 +35,10 @@ services:
       x-bake:
         output: 
           - type=local,dest=./crosscompile/build/pi3b
+  rg35xxh:
+    build:
+      context: .
+      dockerfile: crosscompile/rg35xxh/Dockerfile
+      x-bake:
+        output: 
+          - type=local,dest=./crosscompile/build/rg35xxh

@@ -9,6 +9,7 @@ platforms which I use.
 
 - QNAP TS 431 with OS 4.3.6
 - RaspberryPi 3b with LibreElec
+- Anbernic RG35XX H
 - macOS
 
 You should clone this repository as `crosscompile` inside your yazi repository:
@@ -56,21 +57,6 @@ To compile the same for Intel hardware run `crosscompile/mac/build.sh -a intel`.
 The resulting `ya` and `yazi` can be found in `crosscompile/build/mac/apple` for
 Apple Silicon and `crosscompile/build/mac/intel` for Intel hardware.
 
-## Use Buildx if build.sh won't work for you (on Windows?)
-
-Alternatively there is a docker-compose.yaml that you can use.
-
-`docker buildx bake -f crosscompile/docker-compose.yaml <PLATFORM>`
-
-`<PLATFORM>` is one of
-
-- macapple
-- macintel
-- ts431
-
-To change the SDK (OWNSDK) or the minimal Version (MINMAC) for the macOS builds,
-you have to change the build variables in `crosscompile/docker-compose.yaml`.
-
 ## Build for Raspberry Pi 3b
 
 I also have a Raspberry Pi 3b running LibreElec.
@@ -83,4 +69,31 @@ better compile options for the 3b, I can change it without affecting ts431.
 
 When finished, you should have a directory `crosscompile/build/pi3b` containing
 both, `ya` and `yazi`.
+
+## Build for Anbernic RG35XX H
+
+If you regularly ssh into your RG35XX H Anbernic device, yazi might be quite
+helpful here as well.
+
+`crosscompile/rg35xxh/build.sh`
+
+When finished, you should have a directory `crosscompile/build/rg35xxh` containing
+both, `ya` and `yazi`.
+
+## Use Buildx if build.sh won't work for you (on Windows?)
+
+Alternatively there is a docker-compose.yaml that you can use.
+
+`docker buildx bake -f crosscompile/docker-compose.yaml <PLATFORM>`
+
+`<PLATFORM>` is one of
+
+- macapple
+- macintel
+- ts431
+- pi3b
+- rg35xxh
+
+To change the SDK (OWNSDK) or the minimal Version (MINMAC) for the macOS builds,
+you have to change the build variables in `crosscompile/docker-compose.yaml`.
 
