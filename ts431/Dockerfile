@@ -22,4 +22,7 @@ ENV RUSTFLAGS="-C target-feature=+crt-static"
 RUN cargo build --release --target armv7-unknown-linux-gnueabihf
 
 FROM scratch
-COPY --from=builder /yazi/target/armv7-unknown-linux-gnueabihf/release/yazi /yazi/target/armv7-unknown-linux-gnueabihf/release/ya /
+COPY --from=builder \
+    /yazi/target/armv7-unknown-linux-gnueabihf/release/yazi \
+    /yazi/target/armv7-unknown-linux-gnueabihf/release/ya \
+    /

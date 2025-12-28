@@ -55,4 +55,7 @@ FROM scratch
 
 ARG ARCH
 
-COPY --from=macyazi /yazi/target/${ARCH}-apple-darwin/release/ya /yazi/target/${ARCH}-apple-darwin/release/yazi /
+COPY --from=macyazi \
+    /yazi/target/${ARCH}-apple-darwin/release/ya \
+    /yazi/target/${ARCH}-apple-darwin/release/yazi \
+    /
