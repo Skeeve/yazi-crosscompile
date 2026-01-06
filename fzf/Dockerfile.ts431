@@ -1,0 +1,13 @@
+FROM --platform=$BUILDPLATFORM golang:1.23-alpine AS builder
+
+WORKDIR /src
+COPY . ./
+
+ARG TARGETOS=linux
+ARG TARGETARCH=arm
+
+RUN CGO_ENABLED=0 GOOS=${TARGETOS} GOARCH=${TARGETARCH} GOARM=7 \
+    go build -ldflags="-s -w" -o /fzf main.go
+
+FROM scratch AS export
+COPY --from=builder /fzf /fzf
