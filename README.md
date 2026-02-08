@@ -10,6 +10,7 @@ platforms which I use.
 - QNAP TS 431 with OS 4.3.6
 - RaspberryPi 3b with LibreElec
 - Anbernic RG35XX H
+- 32 bit Debian 12
 - macOS
 
 You should clone this repository as `crosscompile` inside your yazi repository:
@@ -30,6 +31,17 @@ To build simply run
 `crosscompile/ts431/build.sh`
 
 When finished, you should have a directory `crosscompile/build/ts431` containing
+both, `ya` and `yazi`.
+
+## Build for 32 bit Debian 12
+
+I recently installed Debian 12 on an old Latitude D410.
+
+To build yazi for this, simply run
+
+`crosscompile/debian12/build.sh`
+
+When finished, you should have a directory `crosscompile/build/debian12` containing
 both, `ya` and `yazi`.
 
 ## Build for Apple
